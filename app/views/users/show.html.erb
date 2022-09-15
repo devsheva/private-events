@@ -4,3 +4,9 @@
   <p>Location: <%= event.location %></p>
 <% end %>
 
+<h3>Upcoming Events: <%= @user.attendes.where('date >= ?', Date.today).count %></h3>
+
+<h3>User Attendee Events: <%= @user.attendes.count %></h3>
+
+<h3>Past Events: <%= @user.attendes.where('date < ?', Date.today).count %></h3>
+

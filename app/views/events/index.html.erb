@@ -3,4 +3,8 @@
 <% @events.each do |event| %>
   <p>Date: <%= event.date %></p>
   <p>Location: <%= event.location %></p>
+
+  <% if user_signed_in? %>
+    <%= button_to "Attendee", attendee_events_path(event_id: event.id, :method => :post) %>
+  <% end %>
 <% end %>
